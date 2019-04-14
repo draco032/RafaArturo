@@ -3,7 +3,7 @@
 
 class Ope
 {
-    private $_a;
+    public $_a;
     private $_b;
 
     public function __construct($a, $b)
@@ -21,3 +21,4 @@ class Ope
 
 $op1 = new Ope(3,1);
 echo $op1->sum();
+echo $op1->_a;
