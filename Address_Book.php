@@ -7,10 +7,8 @@ class Contact
     private $email;
     
     
-    public function __construct($name, $phone, $email) {
+    public function __construct($name) {
         $this->name = $name;
-        $this->phone = $phone;
-        $this->email = $email;
     }
 
     public function getName() {
@@ -44,8 +42,8 @@ class AddressBook
 {
     public $contacts = array();
     
-    public function add($name, $phone, $email) {
-        $contact = new Contact($name, $phone, $email);
+    public function add($name) {
+        $contact = new Contact($name);
         array_push($this->contacts, $contact);
     }
     
