@@ -7,8 +7,10 @@ class Contact
     private $email;
     
     
-    public function __construct($name) {
+    public function __construct($name, $phone=null, $email=null) {
         $this->name = $name;
+        $this->phone = $phone;
+        $this->email = $email;
     }
 
     public function getName() {
@@ -41,17 +43,24 @@ class Contact
 class AddressBook
 {
     public $contacts = array();
+    public $contact;
     
-    public function add($name) {
-        $contact = new Contact($name);
+    public function add($contact) {
         array_push($this->contacts, $contact);
-    }
+}
+    
     
 }
 
 $ab = new AddressBook;
-$ab->add("John", 123, "piteryus@email.com");
-$ab->add("Titi", 789, "la_perrona@email.com");
+$c = new Contact("John", 123, "pitteryus@email.com");
+$ab->add($c);
+$c = new Contact("Titi", 789, "la_perrona@email.com");
+$ab->add($c);
+$c = new Contact("Selina");
+$c->setEmail("therealmalo@mail.com");
+$ab->add($c);
+
 foreach ($ab->contacts as $contact) {
     echo "Name:  ".$contact->getName().PHP_EOL;
     echo "Phone: ".$contact->getPhone().PHP_EOL;
