@@ -42,5 +42,18 @@ class Contact
 
 class AddressBook
 {
+    public $contacts = array();
     
+    public function add($name, $phone, $email) {
+        $contact = new Contact($name, $phone, $email);
+        array_push($this->contacts, $contact);
+    }
+    
+}
+
+$ab = new AddressBook;
+$ab->add("John", 123, "piteryus@email.com");
+$ab->add("Titi", 789, "la_perrona@email.com");
+foreach ($ab->contacts as $contact) {
+    echo $contact->getName().PHP_EOL;
 }
