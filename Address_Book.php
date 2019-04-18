@@ -55,5 +55,7 @@ $ab = new AddressBook;
 $ab->add("John", 123, "piteryus@email.com");
 $ab->add("Titi", 789, "la_perrona@email.com");
 foreach ($ab->contacts as $contact) {
-    echo $contact->getName().PHP_EOL;
+    echo "Name:  ".$contact->getName().PHP_EOL;
+    echo "Phone: ".$contact->getPhone().PHP_EOL;
+    echo "Email: ".$contact->getEmail().PHP_EOL.PHP_EOL;
 }
