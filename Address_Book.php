@@ -48,6 +48,11 @@ class AddressBook
     public function addContact($contact) {
         array_push($this->contacts, $contact);
     }
+        
+    public function removeContact($index) {
+        //remove by name?
+        unset($this->contacts[$index]); 
+    }
     
     public function listContacts() {
         foreach ($this->contacts as $contact) {
@@ -56,25 +61,40 @@ class AddressBook
         echo "Email: ".$contact->getEmail().PHP_EOL.PHP_EOL;
         }
     }
+
     
-    public function removeContact($index) {
-        //remove by name
-        unset($this->contacts[$index]); 
+    public function searchContact($search) {
+        
+        $index=0;
+        foreach ($this->contacts as $value) {
+            
+            if ($search == $value->getName() ) {
+                echo "\n"."Index: ".$index."\n";
+                echo "Name:  ".$value->getName()."\n";
+                echo "Phone: ".$value->getPhone()."\n";
+                echo "Email: ".$value->getEmail()."\n";
+                //need to count duplicate name(dont use brake)
+                //break;
+            }
+            $index = $index+1;
+        }
     }
-    
-    
 }
 
 $ab = new AddressBook;
-$c = new Contact("John", 123, "pitteryus@email.com");
+$c = new Contact("John", "123-456-7895", "pitteryus@email.com");
 $ab->addContact($c);
-$c = new Contact("Titi", 789, "la_perrona@email.com");
+$c = new Contact("Titi", "156-456-3694", "la_perrona@email.com");
 $ab->addContact($c);
 $c = new Contact("Selina");
-$c->setEmail("therealmalo@mail.com");
+$c->setEmail("therealmalona@mail.com");
 $ab->addContact($c);
 
-//$ab->listContacts();
 
+//PRUEBAS: 
+//$ab->listContacts();
 //$ab->removeContact(0);
 //$ab->listContacts();
+//$ab->searchContact("Titi");
+
+echo $ab->searchContact("Titi");

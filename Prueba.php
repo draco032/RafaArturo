@@ -20,5 +20,8 @@ class Ope
 }
 
 $op1 = new Ope(3,1);
+$op2 = new Ope(2,2);
 echo $op1->sum();
-echo $op1->_a;
+echo $op1->_a."\n";
+echo $op2->_a;
+
