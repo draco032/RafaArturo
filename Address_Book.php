@@ -45,24 +45,36 @@ class AddressBook
     public $contacts = array();
     public $contact;
     
-    public function add($contact) {
+    public function addContact($contact) {
         array_push($this->contacts, $contact);
-}
+    }
+    
+    public function listContacts() {
+        foreach ($this->contacts as $contact) {
+        echo "Name:  ".$contact->getName().PHP_EOL;
+        echo "Phone: ".$contact->getPhone().PHP_EOL;
+        echo "Email: ".$contact->getEmail().PHP_EOL.PHP_EOL;
+        }
+    }
+    
+    public function removeContact($index) {
+        //remove by name
+        unset($this->contacts[$index]); 
+    }
     
     
 }
 
 $ab = new AddressBook;
 $c = new Contact("John", 123, "pitteryus@email.com");
-$ab->add($c);
+$ab->addContact($c);
 $c = new Contact("Titi", 789, "la_perrona@email.com");
-$ab->add($c);
+$ab->addContact($c);
 $c = new Contact("Selina");
 $c->setEmail("therealmalo@mail.com");
-$ab->add($c);
+$ab->addContact($c);
 
-foreach ($ab->contacts as $contact) {
-    echo "Name:  ".$contact->getName().PHP_EOL;
-    echo "Phone: ".$contact->getPhone().PHP_EOL;
-    echo "Email: ".$contact->getEmail().PHP_EOL.PHP_EOL;
-}
+//$ab->listContacts();
+
+//$ab->removeContact(0);
+//$ab->listContacts();
