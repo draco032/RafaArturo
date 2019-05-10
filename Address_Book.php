@@ -56,9 +56,9 @@ class AddressBook
     
     public function listContacts() {
         foreach ($this->contacts as $contact) {
-        echo "Name:  ".$contact->getName().PHP_EOL;
-        echo "Phone: ".$contact->getPhone().PHP_EOL;
-        echo "Email: ".$contact->getEmail().PHP_EOL.PHP_EOL;
+        echo "<li>"."Name:  ".$contact->getName()."</br>";
+        echo "Phone: ".$contact->getPhone()."</br>";
+        echo "Email: ".$contact->getEmail()."</li>";
         }
     }
 
@@ -81,20 +81,6 @@ class AddressBook
     }
 }
 
-$ab = new AddressBook;
-$c = new Contact("John", "123-456-7895", "pitteryus@email.com");
-$ab->addContact($c);
-$c = new Contact("Titi", "156-456-3694", "la_perrona@email.com");
-$ab->addContact($c);
-$c = new Contact("Selina");
-$c->setEmail("therealmalona@mail.com");
-$ab->addContact($c);
 
 
-//PRUEBAS: 
-//$ab->listContacts();
-//$ab->removeContact(0);
-//$ab->listContacts();
-//$ab->searchContact("Titi");
 
-echo $ab->searchContact("Titi");
